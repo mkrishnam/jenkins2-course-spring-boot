@@ -114,6 +114,7 @@ public class SampleAtmosphereApplicationTests {
 						throws Exception {
 					session.sendMessage(new TextMessage(
 							"{\"author\":\"test\",\"message\":\"test\"}"));
+					
 				}
 
 				@Override
