@@ -18,6 +18,13 @@
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
+	<groupId>com.provenir.cloud.servlet</groupId>
+	<artifactId>devops</artifactId>
+	<version>atmosphere-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>devops</name>
+	<description>devops</description>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,6 +56,30 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>clouddev.provenir.net</id>
+			<name>clouddev.provenir.net-releases</name>
+			<url>https://clouddev.provenir.net/artifactory/platform</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>clouddev.provenir.net</id>
+			<name>clouddev.provenir.net-releases</name>
+			<url>https://clouddev.provenir.net/artifactory/platform</url>
+		</pluginRepository>
+	</pluginRepositories>
+	<distributionManagement>
+		<repository>
+			<id>clouddev.provenir.net</id>
+			<name>clouddev.provenir.net-releases</name>
+			<url>https://clouddev.provenir.net/artifactory/platform</url>
+		</repository>
+	</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
