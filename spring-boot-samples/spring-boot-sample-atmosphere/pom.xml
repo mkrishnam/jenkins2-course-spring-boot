@@ -141,7 +141,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	
+	<profiles>
 	<profile>
 			<id>build_jar_local</id>
 			<properties>
@@ -177,7 +177,7 @@
 				</plugins>
 			</build>
 		</profile>
-	
+	</profiles>
  	
 	<distributionManagement>
                 <repository>
