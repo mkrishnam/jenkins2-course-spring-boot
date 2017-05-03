@@ -30,7 +30,7 @@
                <execution>
                   <phase>test</phase>
                   <goals>
-                     <goal>deploy</goal>
+                     <goal>run</goal>
                   </goals>
                 </execution>
             </executions>
