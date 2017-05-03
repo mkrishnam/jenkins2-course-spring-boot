@@ -9,7 +9,6 @@
 	</parent>
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
-		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss z</maven.build.timestamp.format>
 	</properties>
 	<groupId>com.provenir.cloud.servlet</groupId>
 	<artifactId>devops</artifactId>
@@ -17,192 +16,7 @@
 	<packaging>jar</packaging>
 	<name>devops</name>
 	<description>devops</description>
-
-		
-	<build>
-		<directory>target</directory>
-		<outputDirectory>target/classes</outputDirectory>
-		<finalName>${artifactId}-${version}</finalName>
-		<testOutputDirectory>target/test-classes</testOutputDirectory>
-		<sourceDirectory>${sourceDir}</sourceDirectory>
-		<testSourceDirectory>${sourceTestDir}</testSourceDirectory>
-		<resources>
-			<resource>
-				<directory>${jarResourceDir}</directory>
-			</resource>
-			<resource>
-				<directory>${warResourceDir}</directory>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-			</testResource>
-		</testResources>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.17</version>
-				<configuration>
-					<redirectTestOutputToFile>false</redirectTestOutputToFile>
-					<classesDirectory>target/classes</classesDirectory>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>2.2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.7</version>
-				<executions>
-					<execution>
-						<id>remove-old-artifacts</id>
-						<phase>package</phase>
-						<goals>
-							<goal>remove-project-artifact</goal>
-						</goals>
-						<configuration>
-							<removeAll>false</removeAll>
-							<!-- remove only this version -->
-							<failOnError>false</failOnError>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.13</version>
-				<configuration>
-					<configLocation>com/provenir/checkstyle/checkstyle.xml</configLocation>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>com.provenir.lib</groupId>
-						<artifactId>provCheckStyle</artifactId>
-						<version>latest-SNAPSHOT</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.7.201606060606</version>
-				<executions>
-					<execution>
-						<id>default-prepare-agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>default-report</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>com.provenir.plugin</groupId>
-										<artifactId>maven-obfuscator-plugin</artifactId>
-										<versionRange>[1.0,)</versionRange>
-										<goals>
-											<goal>obfuscate</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore/>
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-antrun-plugin</artifactId>
-										<versionRange>[1.3,)</versionRange>
-										<goals>
-											<goal>run</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore/>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-	<profiles>
-	<profile>
-			<id>build_jar_local</id>
-			<properties>
-				<sourceDir>src/main/java</sourceDir>
-				<sourceTestDir>src/test/java</sourceTestDir>
-				<jarResourceDir>src/main/resources</jarResourceDir>
-				<warResourceDir>resources</warResourceDir>
-			</properties>
-			<activation>
-				<file>
-					<missing>WebContent/</missing>
-				</file>
-				<activeByDefault>false</activeByDefault>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-jar-plugin</artifactId>
-						<configuration>
-							<classesDirectory>target/classes</classesDirectory>
-							<archive>
-								<addMavenDescriptor>false</addMavenDescriptor>
-								<manifestEntries>
-									<revision>${GIT_COMMIT}</revision>
-									<branch>${GIT_BRANCH}</branch>
-									<version>${project.version}</version>
-									<date>${maven.build.timestamp}</date>
-								</manifestEntries>
-							</archive>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
- 	
+	
 	<distributionManagement>
                 <repository>
                         <id>clouddev.provenir.net</id>
@@ -213,7 +27,6 @@
         </distributionManagement>
 
 	<dependencies>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -244,5 +57,32 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.7.201606060606</version>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
