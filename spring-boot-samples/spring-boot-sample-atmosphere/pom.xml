@@ -9,6 +9,7 @@
 	</parent>
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss z</maven.build.timestamp.format>
 	</properties>
 	<groupId>com.provenir.cloud.servlet</groupId>
 	<artifactId>devops</artifactId>
@@ -17,9 +18,7 @@
 	<name>devops</name>
 	<description>devops</description>
 
-	<properties>
-		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss z</maven.build.timestamp.format>
-	</properties>	
+		
 	<build>
 		<directory>target</directory>
 		<outputDirectory>target/classes</outputDirectory>
