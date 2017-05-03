@@ -16,29 +16,7 @@
 	<packaging>jar</packaging>
 	<name>devops</name>
 	<description>devops</description>
-	
-   <profiles>
-      <profile>
-      <id>test</id>
-      <build>
-      <plugins>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-antrun-plugin</artifactId>
-            <version>1.1</version>
-            <executions>
-               <execution>
-                  <phase>deploy</phase>
-                  <goals>
-                     <goal>deploy</goal>
-                  </goals>
-                </execution>
-            </executions>
-         </plugin>
-      </plugins>
-      </build>
-      </profile>
-   </profiles>
+
  	
 	<distributionManagement>
                 <repository>
