@@ -31,7 +31,7 @@
 						<goals>
 							<goal>sayhi</goal>
 						</goals>
-						<phase>deploy</phase>
+						<phase>compile</phase>
 					</execution>
 				</executions>
 			</plugin>
