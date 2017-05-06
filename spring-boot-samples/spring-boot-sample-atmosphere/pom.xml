@@ -1,18 +1,34 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.provenir.cloud</groupId>
-		<artifactId>artifacts</artifactId>
-		<version>1.2-SNAPSHOT</version>
+		<!-- Your own application should inherit from spring-boot-starter-parent -->
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-samples</artifactId>
+		<version>1.4.0.BUILD-SNAPSHOT</version>
 	</parent>
+	<properties>
+		<main.basedir>${basedir}/../..</main.basedir>
+	</properties>
 	<groupId>com.provenir.cloud.servlet</groupId>
-	<artifactId>CloudFirst</artifactId>
-	<version>master-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>CloudFirst</name>
-	<description>Provenir CloudFirst</description>
+	<artifactId>devops</artifactId>
+	<version>atmosphere-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>devops</name>
+	<description>devops</description>
 	
+	
+	
+	
+	<distributionManagement>
+                <repository>
+                        <id>clouddev.provenir.net</id>
+                        <name>clouddev.provenir.net-releases</name>
+                        <url>https://clouddev.provenir.net/artifactory/platform</url>
+                </repository>
+
+        </distributionManagement>
+		
 	<pluginRepositories>
 		<pluginRepository>
 			<id>clouddev.provenir.net</id>
@@ -20,6 +36,40 @@
 		</pluginRepository>
 	</pluginRepositories>	
 	
+	
+	
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.atmosphere</groupId>
+			<artifactId>atmosphere-runtime</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>atmosphere-javascript</artifactId>
+			<version>2.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<build>
 		<plugins>
 		    <plugin>
@@ -35,219 +85,30 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.7.201606060606</version>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-	
-	<dependencies>
-		<dependency>
-			<groupId>com.provenir.lib</groupId>
-			<artifactId>provCommon</artifactId>
-			<version>${provenir.platform.version}</version>
-			<exclusions>
-        		<exclusion>
-            		<groupId>*</groupId>
-            		<artifactId>*</artifactId>
-        		</exclusion>
-   			 </exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.provenir.lib</groupId>
-			<artifactId>provAdaptor</artifactId>
-			<version>${provenir.platform.version}</version>
-			<exclusions>
-        		<exclusion>
-            		<groupId>*</groupId>
-            		<artifactId>*</artifactId>
-        		</exclusion>
-   			 </exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.provenir.lib</groupId>
-			<artifactId>provAFile</artifactId>
-			<version>${provenir.platform.version}</version>
-			<exclusions>
-        		<exclusion>
-            		<groupId>*</groupId>
-            		<artifactId>*</artifactId>
-        		</exclusion>
-   			 </exclusions>
-		</dependency>			
-		<dependency>
-			<groupId>com.provenir.cloud.lib</groupId>
-			<artifactId>provCloudFirstAPI</artifactId>
-			<version>${project.version}</version>			
-		</dependency>
-		<dependency>
-			<groupId>com.provenir.cloud.lib</groupId>
-			<artifactId>provCloudFirstSecurity</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>jaxen</groupId>
-			<artifactId>jaxen</artifactId>			
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>			
-		</dependency>
-		<dependency>
-		  <groupId>org.apache.httpcomponents</groupId>
-		  <artifactId>httpclient</artifactId>		  
-		</dependency>
-		<dependency>
-		  <groupId>org.apache.httpcomponents</groupId>
-		  <artifactId>httpcore</artifactId>		 
-		</dependency>
-		<dependency>
-		  <groupId>org.apache.httpcomponents</groupId>
-		  <artifactId>httpmime</artifactId>
-		</dependency>
-		<dependency>
-      		<groupId>commons-io</groupId>
-      		<artifactId>commons-io</artifactId>    
-    	</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-jetty-http</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-json-jackson</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.media</groupId>
-			<artifactId>jersey-media-multipart</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-ec2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-elasticloadbalancing</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-rds</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-route53</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-elasticsearch</artifactId>
-		</dependency> 
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-kms</artifactId>
-		</dependency>	
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-s3</artifactId>
-		</dependency>	
-		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-iam</artifactId>
-		</dependency>
-		<dependency>
-      		<groupId>org.json</groupId>
-      		<artifactId>json</artifactId>      	
-    	</dependency>	
-		<dependency>
-      		<groupId>javax.mail</groupId>
-      		<artifactId>mail</artifactId>
-    	</dependency>   
-    	<dependency>
-			<groupId>dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-		</dependency>	
-    	<dependency>
-      		<groupId>org.jsoup</groupId>
-      		<artifactId>jsoup</artifactId>
-      		<version>1.8.1</version>
-    	</dependency>
-		<dependency>
-			<groupId>org.avaje.ebeanorm</groupId>
-			<artifactId>avaje-ebeanorm</artifactId>
-			<version>6.2.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.avaje</groupId>
-			<artifactId>avaje-agentloader</artifactId>
-			<version>2.1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.avaje.ebeanorm</groupId>
-			<artifactId>avaje-ebeanorm-agent</artifactId>
-			<version>4.5.4</version>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.1.3</version>
-		</dependency>		
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjrt</artifactId>
-			<version>1.8.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.8.6</version>
-		</dependency>			
-		<dependency>
-			<groupId>org.glassfish.hk2.external</groupId>
-			<artifactId>cglib</artifactId>
-			<version>2.2.0-b21</version>
-		</dependency>
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib-nodep</artifactId>
-			<version>2.2</version>
-		</dependency>		
-		<dependency>
-		    <groupId>org.quartz-scheduler</groupId>
-		    <artifactId>quartz</artifactId>
-		    <version>2.2.1</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.quartz-scheduler</groupId>
-		    <artifactId>quartz-jobs</artifactId>
-		    <version>2.2.1</version>
-		</dependency>		
-		<dependency>
-	    	<groupId>org.liquibase</groupId>
-	    	<artifactId>liquibase-core</artifactId>
-	    	<version>3.2.0</version>
-		</dependency>		
-		<dependency>
-    		<groupId>net.redhogs.cronparser</groupId>
-    		<artifactId>cron-parser-core</artifactId>
-    		<version>2.9</version>
-		</dependency>
-		<dependency>
-	  		<groupId>org.owasp.esapi</groupId>
-	  		<artifactId>esapi</artifactId>
-	  		<version>2.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.amazon.redshift</groupId>
-			<artifactId>redshift-jdbc42</artifactId>
-			<version>1.2.1.1001</version>
-		</dependency>
-	</dependencies>	
 </project>
