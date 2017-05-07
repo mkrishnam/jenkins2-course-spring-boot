@@ -67,9 +67,17 @@
 				<groupId>org.com.provenir</groupId>
 				<artifactId>HelloWorldPlugin-maven-plugin</artifactId>
 				<version>1.0-SNAPSHOT</version>
-			        <configuration>
-   				  <username>Mkrishnam</username>
-  				</configuration>
+			        <executions>
+					<execution>
+						<goals>
+						    <goal>sayhiparameters</goal>
+						</goals>
+						<phase>compile</phase>
+						<configuration>
+   				 			 <username>Mkrishnam</username>
+  						</configuration>
+					</execution>
+				</executions>			    	
 				<executions>
 					<execution>
 						<goals>
