@@ -77,9 +77,7 @@
    				 			 <username>Mkrishnam</username>
   						</configuration>
 					</execution>
-				</executions>			    	
-				<executions>
-					<execution>
+				        <execution>
 						<goals>
 						    <goal>sayhi</goal>
 						</goals>
