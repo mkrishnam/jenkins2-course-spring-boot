@@ -74,7 +74,7 @@
 		<plugins>
 		    <plugin>
 				<groupId>org.com.provenir</groupId>
-				<artifactId>HelloWorldPlugin</artifactId>
+				<artifactId>HelloWorldPlugin-maven-plugin</artifactId>
 				<version>1.0-SNAPSHOT</version>
 				<executions>
 					<execution>
