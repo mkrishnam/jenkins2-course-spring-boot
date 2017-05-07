@@ -15,18 +15,13 @@
 	<version>atmosphere-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>devops</name>
-	<description>devops</description>
-	
-	
-	
-	
+	<description>devops</description>	
 	<distributionManagement>
                 <repository>
                         <id>clouddev.provenir.net</id>
                         <name>clouddev.provenir.net-releases</name>
                         <url>https://clouddev.provenir.net/artifactory/platform</url>
                 </repository>
-
         </distributionManagement>
 		
 	<pluginRepositories>
@@ -35,10 +30,6 @@
 			<url>https://clouddev.provenir.net/artifactory/platform</url>
 		</pluginRepository>
 	</pluginRepositories>	
-	
-	
-	
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -82,7 +73,7 @@
 				<executions>
 					<execution>
 						<goals>
-							<goal>sayhi</goal>
+						    <goal>sayhi</goal>
 						</goals>
 						<phase>compile</phase>
 					</execution>
