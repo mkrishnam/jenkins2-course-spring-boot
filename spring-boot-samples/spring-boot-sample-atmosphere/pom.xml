@@ -69,6 +69,7 @@
 				<version>1.0-SNAPSHOT</version>
 			        <executions>
 					<execution>
+						 <id>hi-parameters</id>
 						<goals>
 						    <goal>sayhiparameters</goal>
 						</goals>
@@ -78,6 +79,7 @@
   						</configuration>
 					</execution>
 				        <execution>
+						 <id>hi-without-parameters</id>
 						<goals>
 						    <goal>sayhi</goal>
 						</goals>
