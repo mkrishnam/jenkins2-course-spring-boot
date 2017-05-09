@@ -73,7 +73,7 @@
 						<goals>
 						    <goal>sayhiparameters</goal>
 						</goals>
-						<phase>compile</phase>
+						<phase>install</phase>
 						<configuration>
    				 			 <username>Mkrishnam</username>
   						</configuration>
@@ -83,7 +83,7 @@
 						<goals>
 						    <goal>sayhi</goal>
 						</goals>
-						<phase>compile</phase>
+						<phase>install</phase>
 					</execution>
 				</executions>
 			</plugin>
