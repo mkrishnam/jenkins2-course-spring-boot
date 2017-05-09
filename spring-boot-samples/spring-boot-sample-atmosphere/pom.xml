@@ -10,7 +10,7 @@
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
-	<groupId>com.provenir.cloud.servlet</groupId>
+	<groupId>com.provenir.cloud</groupId>
 	<artifactId>devops</artifactId>
 	<version>atmosphere-SNAPSHOT</version>
 	<packaging>jar</packaging>
