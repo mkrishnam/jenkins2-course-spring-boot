@@ -15,21 +15,17 @@
 	<version>atmosphere-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>devops</name>
-	<description>devops</description>	
+	<description>devops</description>
+	
 	<distributionManagement>
                 <repository>
                         <id>clouddev.provenir.net</id>
                         <name>clouddev.provenir.net-releases</name>
                         <url>https://clouddev.provenir.net/artifactory/platform</url>
                 </repository>
+
         </distributionManagement>
-		
-	<pluginRepositories>
-		<pluginRepository>
-			<id>clouddev.provenir.net</id>
-			<url>https://clouddev.provenir.net/artifactory/platform</url>
-		</pluginRepository>
-	</pluginRepositories>	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,30 +59,6 @@
 	</dependencies>
 	<build>
 		<plugins>
-		    <plugin>
-				<groupId>org.com.provenir</groupId>
-				<artifactId>HelloWorldPlugin-maven-plugin</artifactId>
-				<version>1.0-SNAPSHOT</version>
-			        <executions>
-					<execution>
-						 <id>hi-parameters</id>
-						<goals>
-						    <goal>sayhiparameters</goal>
-						</goals>
-						<phase>install</phase>
-						<configuration>
-   				 			 <username>Mkrishnam</username>
-  						</configuration>
-					</execution>
-				        <execution>
-						 <id>hi-without-parameters</id>
-						<goals>
-						    <goal>sayhi</goal>
-						</goals>
-						<phase>install</phase>
-					</execution>
-				</executions>
-			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
