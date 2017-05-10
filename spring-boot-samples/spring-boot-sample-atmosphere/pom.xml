@@ -7,25 +7,17 @@
 		<artifactId>spring-boot-samples</artifactId>
 		<version>1.4.0.BUILD-SNAPSHOT</version>
 	</parent>
+	<artifactId>spring-boot-sample-atmosphere</artifactId>
+	<name>Spring Boot Atmosphere Sample</name>
+	<description>Spring Boot Atmosphere Sample</description>
+	<url>http://projects.spring.io/spring-boot/</url>
+	<organization>
+		<name>Pivotal Software, Inc.</name>
+		<url>http://www.spring.io</url>
+	</organization>
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
-	<groupId>com.provenir.cloud.servlet</groupId>
-	<artifactId>devops</artifactId>
-	<version>atmosphere-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>devops</name>
-	<description>devops</description>
-	
-	<distributionManagement>
-                <repository>
-                        <id>clouddev.provenir.net</id>
-                        <name>clouddev.provenir.net-releases</name>
-                        <url>https://clouddev.provenir.net/artifactory/platform</url>
-                </repository>
-
-        </distributionManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
