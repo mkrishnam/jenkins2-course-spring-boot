@@ -7,17 +7,29 @@
 		<artifactId>spring-boot-samples</artifactId>
 		<version>1.4.0.BUILD-SNAPSHOT</version>
 	</parent>
-	<artifactId>spring-boot-sample-atmosphere</artifactId>
-	<name>Spring Boot Atmosphere Sample</name>
-	<description>Spring Boot Atmosphere Sample</description>
-	<url>http://projects.spring.io/spring-boot/</url>
-	<organization>
-		<name>Pivotal Software, Inc.</name>
-		<url>http://www.spring.io</url>
-	</organization>
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
+	<groupId>com.provenir.cloud.servlet</groupId>
+	<artifactId>devops</artifactId>
+	<version>atmosphere-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>devops</name>
+	<description>devops</description>	
+	<distributionManagement>
+                <repository>
+                        <id>clouddev.provenir.net</id>
+                        <name>clouddev.provenir.net-releases</name>
+                        <url>https://clouddev.provenir.net/artifactory/platform</url>
+                </repository>
+        </distributionManagement>
+		
+	<pluginRepositories>
+		<pluginRepository>
+			<id>clouddev.provenir.net</id>
+			<url>https://clouddev.provenir.net/artifactory/platform</url>
+		</pluginRepository>
+	</pluginRepositories>	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -46,11 +58,36 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-websocket</artifactId>
+			<version>3.2.3.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
+		    <plugin>
+				<groupId>org.com.provenir</groupId>
+				<artifactId>HelloWorldPlugin-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			        <executions>
+					<execution>
+						 <id>hi-parameters</id>
+						<goals>
+						    <goal>sayhiparameters</goal>
+						</goals>
+						<phase>compile</phase>
+						<configuration>
+   				 			 <username>Mkrishnam</username>
+  						</configuration>
+					</execution>
+				        <execution>
+						 <id>hi-without-parameters</id>
+						<goals>
+						    <goal>sayhi</goal>
+						</goals>
+						<phase>compile</phase>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
