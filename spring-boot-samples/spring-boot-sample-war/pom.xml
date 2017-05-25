@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-        <groupId>com.provenir.cloud.servlet.devops</groupId>
-        <artifactId>build</artifactId>
-        <version>1.5-SNAPSHOT</version>
+		<!-- Your own application should inherit from spring-boot-starter-parent -->
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-samples</artifactId>
+		<version>1.4.0.BUILD-SNAPSHOT</version>
 	</parent>
-
     	<groupId>com.provenir.cloud.servlet.devops</groupId>
    	<artifactId>atmosphere</artifactId>
     	<packaging>war</packaging>
@@ -57,5 +57,11 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+	<distributionManagement>
+        <repository>
+            <id>clouddev.provenir.net</id>
+            <name>clouddev.provenir.net-releases</name>
+            <url>https://clouddev.provenir.net/artifactory/platform</url>
+        </repository>
+</distributionManagement>
 </project>
